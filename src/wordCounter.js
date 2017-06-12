@@ -17,5 +17,9 @@ WordCounter.prototype.makeAllWordsLowerCase = function() {
 }
 
 WordCounter.prototype.splitWordsToArray = function() {
-  this.text = this.text.split(" ");
+  this.text = this.text.replace( /\n/g, " " ).split(" ")
+}
+
+WordCounter.prototype.removeWhiteSpace = function() {
+  this.text = this.text.filter(function(entry) { return entry.trim() != ''; });
 }

@@ -40,4 +40,12 @@ describe('WordCounter', function() {
       expect(wordCounter.text).toEqual("I'm writing this text at mins to am in the year ");
     });
   });
+
+  describe('removeWhiteSpace', function() {
+    it('removes all blank entries in an array', function() {
+      wordCounter.text = ['', '', "leave this please", '', ''];
+      wordCounter.removeWhiteSpace()
+      expect(wordCounter.text).toEqual(["leave this please"])
+    });
+  });
 })
