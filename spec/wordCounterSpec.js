@@ -48,4 +48,12 @@ describe('WordCounter', function() {
       expect(wordCounter.text).toEqual(["leave this please"])
     });
   });
+
+  describe('sortAlphabetically', function() {
+    it('lists an array in alphabetical order', function() {
+      wordCounter.text = ['c', 'b', 'a'];
+      wordCounter.sortAlphabetically();
+      expect(wordCounter.text).toEqual(['a', 'b', 'c'])
+    })
+  })
 })

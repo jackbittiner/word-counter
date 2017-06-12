@@ -23,3 +23,7 @@ WordCounter.prototype.splitWordsToArray = function() {
 WordCounter.prototype.removeWhiteSpace = function() {
   this.text = this.text.filter(function(entry) { return entry.trim() != ''; });
 }
+
+WordCounter.prototype.sortAlphabetically = function() {
+  this.text = this.text.sort();
+}
