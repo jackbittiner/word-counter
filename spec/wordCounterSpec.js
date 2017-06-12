@@ -54,6 +54,14 @@ describe('WordCounter', function() {
       wordCounter.text = ['c', 'b', 'a'];
       wordCounter.sortAlphabetically();
       expect(wordCounter.text).toEqual(['a', 'b', 'c'])
+    });
+  });
+
+  describe('countFrequencies', function() {
+    it('returns a hash of words and the number of times they appear', function() {
+      wordCounter.text = ['a', 'a', 'b', 'c', 'c', 'c'];
+      wordCounter.countFrequencies();
+      expect(wordCounter.wordFrequencies).toEqual({'a': 2, 'b': 1, 'c': 3})
     })
   })
 })

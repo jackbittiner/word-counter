@@ -27,3 +27,15 @@ WordCounter.prototype.removeWhiteSpace = function() {
 WordCounter.prototype.sortAlphabetically = function() {
   this.text = this.text.sort();
 }
+
+WordCounter.prototype.countFrequencies = function() {
+  var wordFrequencies = {}
+  this.text.forEach(function(word) {
+    if (wordFrequencies.hasOwnProperty(word)) {
+      wordFrequencies[word]++;
+    } else {
+      wordFrequencies[word] = 1;
+    }
+  });
+  this.wordFrequencies = wordFrequencies
+}
