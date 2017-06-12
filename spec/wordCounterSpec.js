@@ -1,83 +1,14 @@
 describe('WordCounter', function() {
 
   beforeEach(function() {
-    testText = "Hello World! hello world. !hello! .WoRLD.";
+    testText = ['a', 'a', 'b', 'c', 'c', 'c'];
     wordCounter = new WordCounter(testText)
-  });
-
-  describe('initialize', function() {
-    it('has text on initialization', function() {
-      expect(wordCounter.text).toEqual("Hello World! hello world. !hello! .WoRLD.");
-    });
-  });
-
-  describe('splitWordsToArray', function() {
-    it('splits the text into an array of all the words', function() {
-      wordCounter.splitWordsToArray();
-      expect(wordCounter.text[0]).toEqual('Hello');
-      expect(wordCounter.text.length).toEqual(6);
-    });
-  });
-
-  describe('removePuncuation', function() {
-    it('removes punctuation from the text', function() {
-      wordCounter.removePunctuation();
-      expect(wordCounter.text).toEqual("Hello World hello world hello WoRLD");
-    });
-
-    it('substitutes hyphens with spaces', function() {
-      wordCounter.text = "-jack-jack--jack-"
-      wordCounter.removePunctuation();
-      expect(wordCounter.text).toEqual(" jack jack  jack ");
-    });
-  });
-
-  describe('makeAllWordsLowerCase', function() {
-    it('makes all of the words in a string lowercase', function() {
-      wordCounter.makeAllWordsLowerCase();
-      expect(wordCounter.text).toEqual("hello world! hello world. !hello! .world.")
-    });
-  });
-
-  describe('removeNumbers', function() {
-    it('removes all numbers from a string', function() {
-      wordCounter.text = "I'm writing this text at 20mins to 11am in the year 2017";
-      wordCounter.removeNumbers();
-      expect(wordCounter.text).toEqual("I'm writing this text at mins to am in the year ");
-    });
-  });
-
-  describe('removeWhiteSpace', function() {
-    it('removes all blank entries in an array', function() {
-      wordCounter.text = ['', '', "leave this please", '', ''];
-      wordCounter.removeWhiteSpace()
-      expect(wordCounter.text).toEqual(["leave this please"])
-    });
-  });
-
-  describe('sortAlphabetically', function() {
-    it('lists an array in alphabetical order', function() {
-      wordCounter.text = ['c', 'b', 'a'];
-      wordCounter.sortAlphabetically();
-      expect(wordCounter.text).toEqual(['a', 'b', 'c'])
-    });
   });
 
   describe('countFrequencies', function() {
     it('returns a hash of words and the number of times they appear', function() {
-      wordCounter.text = ['a', 'a', 'b', 'c', 'c', 'c'];
       wordCounter.countFrequencies();
       expect(wordCounter.wordFrequencies).toEqual({'a': 2, 'b': 1, 'c': 3})
     });
   });
-
-  describe('organiseIntoPrimes', function() {
-    it('creates two arrays and pushes the primes into one and the nonprimes into another', function() {
-      wordCounter.text = ['a', 'b', 'b', 'c', 'c', 'c', 'd', 'd', 'd', 'd'];
-      wordCounter.countFrequencies();
-      wordCounter.organiseIntoPrimes();
-      expect(wordCounter.primes).toEqual(['b: 2', 'c: 3']);
-      expect(wordCounter.notPrimes).toEqual(['a: 1', 'd: 4']);
-    })
-  })
 })
