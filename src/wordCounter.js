@@ -1,5 +1,3 @@
-'use strict';
-
 function WordCounter(arrayOfWords) {
   this.arrayOfWords = arrayOfWords;
 }
@@ -15,3 +13,5 @@ WordCounter.prototype.countFrequencies = function() {
   });
   this.wordFrequencies = wordFrequencies
 }
+
+module.exports.WordCounter = WordCounter;

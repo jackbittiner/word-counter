@@ -1,5 +1,3 @@
-'use strict';
-
 function TextEditor(text) {
   this.text = text
 }
@@ -28,3 +26,5 @@ TextEditor.prototype.removeWhiteSpace = function() {
 TextEditor.prototype.sortAlphabetically = function() {
   this.text = this.text.sort();
 }
+
+module.exports.TextEditor = TextEditor;
