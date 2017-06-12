@@ -5,6 +5,7 @@ function WordCounter(text) {
 }
 
 WordCounter.prototype.removePunctuation = function() {
+  this.text = this.text.replace(/-/g," ")
   this.text = this.text.replace(/[.,\/#!$"?%\^&\*;:{}=\-_`'~()]/g,"")
 }
 

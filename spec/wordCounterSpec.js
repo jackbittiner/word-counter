@@ -24,6 +24,12 @@ describe('WordCounter', function() {
       wordCounter.removePunctuation();
       expect(wordCounter.text).toEqual("Hello World hello world hello WoRLD");
     });
+
+    it('substitutes hyphens with spaces', function() {
+      wordCounter.text = "-jack-jack--jack-"
+      wordCounter.removePunctuation();
+      expect(wordCounter.text).toEqual(" jack jack  jack ");
+    });
   });
 
   describe('makeAllWordsLowerCase', function() {
@@ -62,6 +68,6 @@ describe('WordCounter', function() {
       wordCounter.text = ['a', 'a', 'b', 'c', 'c', 'c'];
       wordCounter.countFrequencies();
       expect(wordCounter.wordFrequencies).toEqual({'a': 2, 'b': 1, 'c': 3})
-    })
-  })
+    });
+  });
 })
