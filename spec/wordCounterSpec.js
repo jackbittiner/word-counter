@@ -28,9 +28,16 @@ describe('WordCounter', function() {
 
   describe('makeAllWordsLowerCase', function() {
     it('makes all of the words in a string lowercase', function() {
-      wordCounter.removePunctuation();
       wordCounter.makeAllWordsLowerCase();
-      expect(wordCounter.text).toEqual("hello world hello world hello world")
-    })
-  })
+      expect(wordCounter.text).toEqual("hello world! hello world. !hello! .world.")
+    });
+  });
+
+  describe('removeNumbers', function() {
+    it('removes all numbers from a string', function() {
+      wordCounter.text = "I'm writing this text at 20mins to 11am in the year 2017";
+      wordCounter.removeNumbers();
+      expect(wordCounter.text).toEqual("I'm writing this text at mins to am in the year ");
+    });
+  });
 })
