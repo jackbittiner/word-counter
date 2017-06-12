@@ -14,8 +14,8 @@ describe('WordCounter', function() {
   describe('splitWordsToArray', function() {
     it('splits the text into an array of all the words', function() {
       wordCounter.splitWordsToArray();
-      expect(wordCounter.arrayOfWords[0]).toEqual('Hello');
-      expect(wordCounter.arrayOfWords.length).toEqual(6);
+      expect(wordCounter.text[0]).toEqual('Hello');
+      expect(wordCounter.text.length).toEqual(6);
     });
   });
 
@@ -25,4 +25,12 @@ describe('WordCounter', function() {
       expect(wordCounter.text).toEqual("Hello World hello world hello WoRLD");
     });
   });
+
+  describe('makeAllWordsLowerCase', function() {
+    it('makes all of the words in a string lowercase', function() {
+      wordCounter.removePunctuation();
+      wordCounter.makeAllWordsLowerCase();
+      expect(wordCounter.text).toEqual("hello world hello world hello world")
+    })
+  })
 })

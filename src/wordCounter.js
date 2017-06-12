@@ -5,9 +5,13 @@ function WordCounter(text) {
 }
 
 WordCounter.prototype.removePunctuation = function() {
-  this.text = this.text.replace(/[.,\/#!$"%\^&\*;:{}=\-_`~()]/g,"")
+  this.text = this.text.replace(/[.,\/#!$"?%\^&\*;:{}=\-_`'~()]/g,"")
+}
+
+WordCounter.prototype.makeAllWordsLowerCase = function() {
+  this.text = this.text.toLowerCase();
 }
 
 WordCounter.prototype.splitWordsToArray = function() {
-  this.arrayOfWords = this.text.split(" ");
+  this.text = this.text.split(" ");
 }
