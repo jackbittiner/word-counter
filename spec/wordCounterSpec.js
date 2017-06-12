@@ -70,4 +70,14 @@ describe('WordCounter', function() {
       expect(wordCounter.wordFrequencies).toEqual({'a': 2, 'b': 1, 'c': 3})
     });
   });
+
+  describe('organiseIntoPrimes', function() {
+    it('creates two arrays and pushes the primes into one and the nonprimes into another', function() {
+      wordCounter.text = ['a', 'b', 'b', 'c', 'c', 'c', 'd', 'd', 'd', 'd'];
+      wordCounter.countFrequencies();
+      wordCounter.organiseIntoPrimes();
+      expect(wordCounter.primes).toEqual(['b: 2', 'c: 3']);
+      expect(wordCounter.notPrimes).toEqual(['a: 1', 'd: 4']);
+    })
+  })
 })

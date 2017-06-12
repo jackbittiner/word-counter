@@ -40,3 +40,25 @@ WordCounter.prototype.countFrequencies = function() {
   });
   this.wordFrequencies = wordFrequencies
 }
+
+WordCounter.prototype.organiseIntoPrimes = function() {
+  var primeFrequency = [];
+  var notPrimeFrequency = [];
+  var wordFrequencies = this.wordFrequencies;
+  Object.keys(this.wordFrequencies).forEach(function(word){
+    if(isPrime(wordFrequencies[word])){
+      primeFrequency.push(word + ': ' + wordFrequencies[word])
+    }
+    else {
+      notPrimeFrequency.push(word + ': ' + wordFrequencies[word])
+    }
+  });
+  this.primes = primeFrequency;
+  this.notPrimes = notPrimeFrequency;
+}
+
+function isPrime(num) {
+  for(var i = 2; i < num; i++)
+    if(num % i === 0) return false;
+  return num !== 1;
+}
