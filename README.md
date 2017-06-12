@@ -30,10 +30,6 @@ $  cd desired/file/location/of/word-counter
 $  git clone git@github.com:jackbittiner/word-counter.git
 ```
 
-#### 4) Start the local server
+#### 3) Start the local server
 ```
 $ node src/index.js
-
-#### 5) Voila
-```
-$ Take in the knowledge of which words are used and how many times!
