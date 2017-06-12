@@ -18,4 +18,11 @@ describe('WordCounter', function() {
       expect(wordCounter.arrayOfWords.length).toEqual(6);
     });
   });
+
+  describe('removePuncuation', function() {
+    it('removes punctuation from the text', function() {
+      wordCounter.removePunctuation();
+      expect(wordCounter.text).toEqual("Hello World hello world hello WoRLD");
+    });
+  });
 })
